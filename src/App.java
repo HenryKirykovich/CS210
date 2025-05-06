@@ -3,39 +3,42 @@ import java.util.Scanner;
 
 public class App {
 	// Henadzi Kirykovich CS 210
-	// 2/5/2025
-	// Description: Quiz 6
+	// 6/5/2025
+	// Description: 
 
-	// Scanner size = new Scanner(System.in);  // external method for save input inside var
-	
 	public static void main(String[] args) {
-		
-		double pi = 3.14159265359;
-		for (int i = 11; i>=1; i--) {
-		  System.out.printf("%13."+i+"f\n", pi);
+		Scanner input = new Scanner(System.in);  // external method for save input inside var
+		boolean choice = false;
+		int counter = 0;
+		int minLength, maxLength;
+								
+		while (choice==false){
+			
+			System.out.print("Input min length of ID:");
+			minLength = input.nextInt();
+			System.out.print("Input max length of ID:");
+			maxLength = input.nextInt();
+			
+			counter++;
+			input.nextLine();
+			
+			
+			System.out.print("Create a new ID:");
+			String newId = input.nextLine();
+			
+			if (newId.length() >= minLength && newId.length() <= maxLength &
+			newId.charAt(0) == newId.charAt(newId.length() - 1) )     
+			{
+				System.out.println(newId +" "+ "has been sucessfully created!");
+				System.out.println("Number of attempts: " + counter);
+				choice = true;
+			} else
+			{
+				System.out.println("ID must be greater than or equal to 3 and less or equal to 5");
+				System.out.println("The first character and the last character must be the same");
+				System.out.println("Number of attempts: " + counter);
+			}
+			
 		}
-		for (int i = 1; i<=11; i++) {
-			System.out.printf("%13."+i+"f\n", pi);
-		  }
-		ifElseMystery(2, 5);
-		ifElseMystery(5, 2);
-		}
-	  
-		public static void ifElseMystery(int a, int b) {
-		  if(a<b*2) { // 2 less than 5  
-			a=a+2; // if so will be 2+2=4
-			b=b-3;  // if so will be 5-3=2
-		  }else if (a == b*2) {
-			a = a * 2;
-           b = b + 5;
-		  } else {
-			a = a - 3;
-		  }
-		  if (a >= 10 && b >= 10) {
-			a = a - 10;
-			b = b - 10;
-		   }
-		  System.out.println(a+""+b); // just concatenation string 4 2 bring 42
-		}
-
+	}
 }
